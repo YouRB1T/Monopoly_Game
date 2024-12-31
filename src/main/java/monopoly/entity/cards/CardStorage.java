@@ -8,6 +8,7 @@ public class CardStorage {
     private HashSet<Card> cards;
 
     public CardStorage() {
+        cards = new HashSet<>();
     }
 
     public CardStorage(HashSet<Card> cards) {

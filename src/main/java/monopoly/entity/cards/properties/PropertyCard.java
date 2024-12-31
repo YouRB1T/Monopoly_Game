@@ -2,15 +2,24 @@ package monopoly.entity.cards.properties;
 
 import monopoly.entity.cards.Card;
 import monopoly.entity.cards.CardStorage;
+import monopoly.entity.cards.Priced;
 import monopoly.entity.cards.properties.characteristics.Rent;
 import monopoly.entity.events.Event;
 
-public class PropertyCard extends Card {
+public class PropertyCard extends Card implements Priced {
     private Integer price;
     private Rent rent;
     private Integer currLevel;
 
     public PropertyCard() {
+    }
+
+    public PropertyCard(Event eventOfCard, String title, String description) {
+        super(eventOfCard, title, description);
+    }
+
+    public PropertyCard(String title, String description) {
+        super(title, description);
     }
 
     public PropertyCard(Event eventOfCard, String title, String description,
@@ -21,6 +30,7 @@ public class PropertyCard extends Card {
         this.currLevel = currLevel;
     }
 
+    @Override
     public Integer getPrice() {
         return price;
     }

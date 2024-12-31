@@ -5,6 +5,10 @@ import monopoly.entity.roles.Player;
 
 public class PayRentEvent extends Event {
 
+    public PayRentEvent() {
+        super();
+    }
+
     public PayRentEvent(String description) {
         super(description);
     }
@@ -16,6 +20,6 @@ public class PayRentEvent extends Event {
 
     @Override
     public String getDescription() {
-        return "";
+        return "Pay Rent Event";
     }
 }
