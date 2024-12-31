@@ -1,7 +1,7 @@
 package monopoly.entity.events;
 
 import monopoly.entity.Board;
-import monopoly.entity.Player;
+import monopoly.entity.roles.Player;
 
 public class PayRentEvent extends Event {
 

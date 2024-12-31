@@ -1,7 +1,7 @@
 package monopoly.entity.cards;
 
 import monopoly.entity.Board;
-import monopoly.entity.Player;
+import monopoly.entity.roles.Player;
 import monopoly.entity.events.Event;
 
 public abstract class Card {
@@ -29,7 +29,7 @@ public abstract class Card {
      */
 
     public void executeActon(Player player, Board board) {
-
+        eventOfCard.execute(player, board);
     }
 
     /**
@@ -58,5 +58,14 @@ public abstract class Card {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "eventOfCard=" + eventOfCard.toString() +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

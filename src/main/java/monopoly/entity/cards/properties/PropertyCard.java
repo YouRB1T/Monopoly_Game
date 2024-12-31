@@ -1,4 +1,6 @@
 package monopoly.entity.cards.properties;
 
-public class PropertyCard {
+import monopoly.entity.cards.Card;
+
+public class PropertyCard extends Card {
 }
