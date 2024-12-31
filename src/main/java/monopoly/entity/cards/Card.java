@@ -60,6 +60,9 @@ public abstract class Card {
         this.title = title;
     }
 
+    /**
+        -----------TO STRING--------------
+     */
     @Override
     public String toString() {
         return "Card{" +
