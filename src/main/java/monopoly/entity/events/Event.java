@@ -1,6 +1,7 @@
 package monopoly.entity.events;
 
 import monopoly.entity.Board;
+import monopoly.entity.cards.Card;
 import monopoly.entity.roles.Player;
 
 public abstract class Event {
@@ -21,7 +22,7 @@ public abstract class Event {
         return description;
     }
 
-    public abstract void execute(Player player, Board board);
+    public abstract void execute(Player player);
 
     @Override
     public String toString() {

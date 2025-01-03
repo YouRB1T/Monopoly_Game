@@ -1,8 +1,6 @@
 package monopoly.entity.cards.properties;
 
 import monopoly.entity.cards.Card;
-import monopoly.entity.cards.CardStorage;
-import monopoly.entity.cards.Priced;
 import monopoly.entity.cards.properties.characteristics.Rent;
 import monopoly.entity.events.Event;
 

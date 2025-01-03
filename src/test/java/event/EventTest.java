@@ -30,7 +30,7 @@ public class EventTest {
     @Test
     public void testExecute() {
         Player player = new Player();
-        Board board = new Board();
-        event.execute(player, board);
+
+        event.execute(player);
     }
 }

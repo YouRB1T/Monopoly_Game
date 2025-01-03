@@ -29,7 +29,7 @@ public abstract class Card {
      */
 
     public void executeActon(Player player, Board board) {
-        eventOfCard.execute(player, board);
+        eventOfCard.execute(player);
     }
 
     /**

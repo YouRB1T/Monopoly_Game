@@ -2,11 +2,9 @@ package monopoly.entity.roles;
 
 import monopoly.entity.cards.Card;
 import monopoly.entity.cards.CardStorage;
-import monopoly.entity.cards.Priced;
-import monopoly.entity.events.Event;
+import monopoly.entity.cards.properties.Priced;
 
 public class Player extends Role {
-    private Event event;
     private Integer moneys;
     private Integer totalMoneys;
     private final CardStorage playerCards;
@@ -20,6 +18,10 @@ public class Player extends Role {
     public Player(String name) {
         super(name);
         this.playerCards = new CardStorage();
+    }
+
+    public Integer getTotalMoneys() {
+        return totalMoneys;
     }
 
     public void deleteCard(Card card) {

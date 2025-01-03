@@ -14,7 +14,7 @@ public class PayRentEvent extends Event {
     }
 
     @Override
-    public void execute(Player player, Board board) {
+    public void execute(Player player) {
 
     }
 
