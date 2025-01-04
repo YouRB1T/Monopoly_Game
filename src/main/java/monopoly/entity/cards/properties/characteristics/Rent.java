@@ -1,6 +1,7 @@
 package monopoly.entity.cards.properties.characteristics;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class Rent {
     private HashMap<Integer, Integer> rentByLevel;
@@ -26,5 +27,19 @@ public class Rent {
         } else {
             rentByLevel.put(level, rent);
         }
+    }
+
+    public Integer getRentByLevel(Integer level) {
+        return rentByLevel.get(level);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Rent by Level:\n");
+        for (Map.Entry<Integer, Integer> entry : rentByLevel.entrySet()) {
+            sb.append("Level ").append(entry.getKey()).append(": ").append(entry.getValue()).append("\n");
+        }
+        return sb.toString();
     }
 }

@@ -52,4 +52,16 @@ public class PropertyCard extends Card implements Priced {
     public void setCurrLevel(Integer currLevel) {
         this.currLevel = currLevel;
     }
+
+    @Override
+    public String toString() {
+        return "PropertyCard{" +
+                "event=" + super.getEventOfCard() +
+                "title=" + super.getTitle() +
+                "description=" + super.getDescription() +
+                "price=" + price +
+                ", rent=" + rent.toString() +
+                ", currLevel=" + currLevel +
+                '}';
+    }
 }

@@ -29,7 +29,7 @@ public abstract class Card {
      */
 
     public void executeActon(Player player, Board board) {
-        eventOfCard.execute(player);
+        eventOfCard.execute(player, board);
     }
 
     /**
@@ -59,6 +59,8 @@ public abstract class Card {
     public void setTitle(String title) {
         this.title = title;
     }
+
+
 
     /**
         -----------TO STRING--------------

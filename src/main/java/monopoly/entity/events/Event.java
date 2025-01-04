@@ -22,7 +22,7 @@ public abstract class Event {
         return description;
     }
 
-    public abstract void execute(Player player);
+    public abstract void execute(Player player, Board board);
 
     @Override
     public String toString() {

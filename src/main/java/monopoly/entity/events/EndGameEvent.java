@@ -1,5 +1,6 @@
 package monopoly.entity.events;
 
+import monopoly.entity.Board;
 import monopoly.entity.roles.Player;
 
 import java.util.List;
@@ -11,7 +12,7 @@ public class EndGameEvent extends Event{
     }
 
     @Override
-    public void execute(Player player) {
+    public void execute(Player player, Board board) {
 
     }
 

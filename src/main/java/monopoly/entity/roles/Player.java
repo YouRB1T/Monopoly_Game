@@ -20,6 +20,14 @@ public class Player extends Role {
         this.playerCards = new CardStorage();
     }
 
+    public Integer getMoneys() {
+        return moneys;
+    }
+
+    public void setMoneys(Integer moneys) {
+        this.moneys = moneys;
+    }
+
     public Integer getTotalMoneys() {
         return totalMoneys;
     }

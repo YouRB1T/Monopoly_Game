@@ -12,7 +12,7 @@ public class StartGameEvent extends Event{
     }
 
     @Override
-    public void execute(Player player) {
+    public void execute(Player player, Board board) {
 
     }
 
