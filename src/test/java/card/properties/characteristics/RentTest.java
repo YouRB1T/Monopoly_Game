@@ -44,14 +44,12 @@ public class RentTest {
 
     @Test
     public void testSetRentOnLevelWithNegativeValue() {
-        // Устанавливаем аренду с отрицательным значением
         rent.setRentOnTheLevel(1, -50);
         assertEquals(-50, rent.getRentByLevel().get(1), "Rent for level 1 should be -50");
     }
 
     @Test
     public void testSetRentOnLevelWithZeroValue() {
-        // Устанавливаем аренду с нулевым значением
         rent.setRentOnTheLevel(1, 0);
         assertEquals(0, rent.getRentByLevel().get(1), "Rent for level 1 should be 0");
     }

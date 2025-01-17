@@ -3,13 +3,16 @@ package monopoly.entity.events;
 import monopoly.entity.Board;
 import monopoly.entity.roles.Player;
 
-public class RollDiceEvent extends Event {
-    @Override
-    public void execute(Player player, Board board) {
+import java.util.Random;
 
+public class RollDiceEvent {
+    private final Random random;
+
+    public RollDiceEvent(Random random) {
+        this.random = random;
     }
 
-    public int rollDeices(){
-        return 9;
+    public int rollDice() {
+        return random.nextInt(12) + 1;
     }
 }

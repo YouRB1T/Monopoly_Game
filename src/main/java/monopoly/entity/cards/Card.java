@@ -13,6 +13,10 @@ public abstract class Card {
     public Card() {
     }
 
+    public Card(String title) {
+        this.title = title;
+    }
+
     public Card(String title, String description) {
         this.title = title;
         this.description = description;

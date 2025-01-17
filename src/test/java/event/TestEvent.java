@@ -15,6 +15,6 @@ public class TestEvent extends Event {
 
     @Override
     public void execute(Player player, Board board) {
-        // Реализация метода для тестирования
+
     }
 }

@@ -18,6 +18,8 @@ public class Player extends Role {
     public Player(String name) {
         super(name);
         this.playerCards = new CardStorage();
+        totalMoneys = 0;
+        moneys = 0;
     }
 
     public Integer getMoneys() {
@@ -58,5 +60,9 @@ public class Player extends Role {
     public void subMoneys(Integer amount) {
         moneys -= amount;
         totalMoneys -= amount;
+    }
+
+    public String getName() {
+        return super.getName();
     }
 }

@@ -52,7 +52,7 @@ public class CardStorageTest {
         cardStorage.addCard(testCard1);
         assertTrue(cardStorage.isCardInside(testCard1), "Card should be inside storage before deletion");
 
-        cardStorage.deleteCard(testCard2); // Trying to delete a card that is not in storage
+        cardStorage.deleteCard(testCard2);
         assertTrue(cardStorage.isCardInside(testCard1), "Card 1 should still be inside storage");
     }
 

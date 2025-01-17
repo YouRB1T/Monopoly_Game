@@ -2,6 +2,7 @@ package monopoly.entity.cards.properties;
 
 import monopoly.entity.cards.Card;
 import monopoly.entity.cards.properties.characteristics.Rent;
+import monopoly.entity.cards.properties.characteristics.RentUtils;
 import monopoly.entity.events.Event;
 
 public class PropertyCard extends Card implements Priced {
@@ -10,6 +11,17 @@ public class PropertyCard extends Card implements Priced {
     private Integer currLevel;
 
     public PropertyCard() {
+    }
+
+    public PropertyCard(String title, Integer price) {
+        super(title);
+        this.price = price;
+    }
+
+    public PropertyCard(Integer price) {
+        this.price = price;
+        rent = new Rent();
+        RentUtils.fillRent(rent, 5);
     }
 
     public PropertyCard(Event eventOfCard, String title, String description) {

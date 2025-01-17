@@ -4,8 +4,10 @@ import monopoly.entity.cards.Card;
 import monopoly.entity.cards.CardAction;
 import monopoly.entity.cards.CardStorage;
 import monopoly.entity.cards.properties.PropertyCard;
+import monopoly.entity.cards.properties.PropertyGroup;
 import monopoly.entity.roles.Player;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.TreeMap;
@@ -14,12 +16,14 @@ public class Board {
     private final HashMap<Integer, Card> board;
     private final HashMap<Player, Integer> playerPosition;
     private final TreeMap<Integer, Player> playersCards;
+    private List<PropertyGroup> propertyGroups;
     private int maxSize;
 
     public Board() {
         board = new HashMap<>();
         playerPosition = new HashMap<>();
         playersCards = new TreeMap<>();
+        propertyGroups = new ArrayList<>();
     }
 
     public Board(HashMap<Integer, Card> board) {
@@ -27,6 +31,7 @@ public class Board {
         maxSize = 0;
         playerPosition = new HashMap<>();
         playersCards = new TreeMap<>();
+        propertyGroups = new ArrayList<>();
     }
 
     public HashMap<Integer, Card> getBoard() {
@@ -46,8 +51,28 @@ public class Board {
         return maxSize;
     }
 
+    public HashMap<Player, Integer> getPlayerPosition() {
+        return playerPosition;
+    }
+
+    public TreeMap<Integer, Player> getPlayersCards() {
+        return playersCards;
+    }
+
+    public List<PropertyGroup> getPropertyGroups() {
+        return propertyGroups;
+    }
+
+    public void setMaxSize(int maxSize) {
+        this.maxSize = maxSize;
+    }
+
     public Integer getPlayerPosition(Player player) {
         return playerPosition.get(player);
+    }
+
+    public void setPropertyGroups(List<PropertyGroup> propertyGroups) {
+        this.propertyGroups = propertyGroups;
     }
 
     public void setPlayerPosition(Integer position, Player player) {
@@ -60,6 +85,6 @@ public class Board {
     }
 
     public boolean isFreeCard(Integer numberCard){
-        return !playersCards.containsKey(numberCard);
+        return playersCards.containsKey(numberCard);
     }
 }
