@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -67,7 +68,7 @@ public class CardStorageTest {
     @Test
     public void testGetCards() {
         cardStorage.addCard(testCard1);
-        HashSet<Card> cards = cardStorage.getCards();
+        Set<Card> cards = cardStorage.getCards();
         assertTrue(cards.contains(testCard1), "Card should be retrievable from storage");
     }
 }

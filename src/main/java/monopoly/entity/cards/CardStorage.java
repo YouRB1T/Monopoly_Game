@@ -1,37 +1,49 @@
 package monopoly.entity.cards;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
-public class CardStorage {
-    private HashSet<Card> cards;
+public class CardStorage<C> {
+    private Set<C> cards;
 
     public CardStorage() {
         cards = new HashSet<>();
     }
 
-    public CardStorage(HashSet<Card> cards) {
+    public CardStorage(Set<C> cards) {
         this.cards = cards;
     }
 
-    public HashSet<Card> getCards() {
-        return cards;
+
+    /*private static class ReadOnlyProxySet<T> implements Set<T> {
+        private final Set<T> original;
+
+        public ReadOnlyProxySet(Set<T> original) {
+            this.original = original;
+        }
+
+    }*/
+
+    public Set<C> getCards() {
+        return  cards;
     }
 
-    public void setCards(HashSet<Card> cards) {
+    public void setCards(HashSet<C> cards) {
         this.cards = cards;
     }
 
-    public void addCard(Card card) {
+    public CardStorage(CardStorage<C> other) {
+
+    }
+
+    public void addCard(C card) {
         cards.add(card);
     }
 
-    public boolean isCardInside(Card card) {
+    public boolean isCardInside(C card) {
         return cards.contains(card);
     }
 
-    public void deleteCard(Card card) {
+    public void deleteCard(C card) {
         if (cards.remove(card)) {
             System.out.println("DELETED: " + card.toString());
         } else {

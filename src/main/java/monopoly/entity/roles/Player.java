@@ -4,10 +4,10 @@ import monopoly.entity.cards.Card;
 import monopoly.entity.cards.CardStorage;
 import monopoly.entity.cards.properties.Priced;
 
-public class Player extends Role {
+public class Player<C extends Card & Priced> extends Role {
     private Integer moneys;
     private Integer totalMoneys;
-    private final CardStorage playerCards;
+    private final CardStorage<C> playerCards;
 
     public Player() {
         this.playerCards = new CardStorage();
@@ -42,6 +42,7 @@ public class Player extends Role {
     }
 
     public void addCard(Card card) {
+
         if (card instanceof Priced) {
             totalMoneys += ((Priced) card).getPrice();
         }

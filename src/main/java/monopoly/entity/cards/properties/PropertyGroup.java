@@ -5,10 +5,11 @@ import monopoly.entity.cards.CardStorage;
 import monopoly.entity.roles.Player;
 
 import java.util.HashSet;
+import java.util.Set;
 
 public class PropertyGroup {
     private String name;
-    private CardStorage cardStorage;
+    private CardStorage<Card> cardStorage;
 
     public PropertyGroup(String name) {
         this.name = name;
@@ -32,7 +33,7 @@ public class PropertyGroup {
         return true;
     }
 
-    public HashSet<Card> getCards() {
+    public Set<Card> getCards() {
         return cardStorage.getCards();
     }
 
