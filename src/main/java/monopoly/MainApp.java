@@ -1,8 +1,6 @@
 package monopoly;
 
-import monopoly.builders.ClassicGameBuilder;
 import monopoly.controllers.GameController;
-import monopoly.entity.Board;
 
 import java.util.Scanner;
 

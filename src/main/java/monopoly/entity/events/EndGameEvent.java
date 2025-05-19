@@ -8,6 +8,10 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class EndGameEvent extends Event{
 
+    public EndGameEvent(String name, String description) {
+        super(name, description);
+    }
+
     @Override
     public void execute(Player player, Board board) {
 

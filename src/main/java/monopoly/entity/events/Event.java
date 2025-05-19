@@ -1,26 +1,16 @@
 package monopoly.entity.events;
 
+import lombok.*;
 import monopoly.entity.Board;
 import monopoly.entity.cards.Card;
 import monopoly.entity.roles.Player;
 
+@Getter
+@Setter
+@AllArgsConstructor
 public abstract class Event {
+    private String name;
     private String description;
-
-    public Event() {
-    }
-
-    public Event(String description) {
-        this.description = description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getDescription() {
-        return description;
-    }
 
     public abstract void execute(Player player, Board board);
 

@@ -1,39 +1,29 @@
 package monopoly.entity.events;
 
+import lombok.RequiredArgsConstructor;
 import monopoly.entity.Board;
+import monopoly.entity.cards.Card;
 import monopoly.entity.cards.properties.PropertyCard;
 import monopoly.entity.roles.Player;
 
-public class EventOnProperty extends Event{
-    private final PayRentEvent payRentEvent;
-    private final BuyPropertyEvent buyPropertyEvent;
-    private final ChooseEvent chooseEvent;
 
-    public EventOnProperty(String description,
-                           PayRentEvent payRentEvent, BuyPropertyEvent buyPropertyEvent, ChooseEvent chooseEvent)
-    {
-        super(description);
-        this.payRentEvent = payRentEvent;
-        this.buyPropertyEvent = buyPropertyEvent;
-        this.chooseEvent = chooseEvent;
+public class EventOnProperty extends Event{
+    private final BuyPropertyEvent buyPropertyEvent = new BuyPropertyEvent("Покупка собственности",
+            "Сработал ивент покупки собственности");
+    private final PayRentEvent payRentEvent = new PayRentEvent("Оплата аренды",
+            "Сработал ивент оплаты аренды");
+
+    public EventOnProperty(String name, String description) {
+        super(name, description);
     }
 
     @Override
     public void execute(Player player, Board board) {
-        if (board.isFreeCard(board.getPlayerPosition(player))) {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append("Would you like to buy this property? Prise of property: ")
-                    .append(
-                            (
-                            (PropertyCard) board.getCard(board.getPlayerPosition(player))
-                            )
-                                    .getPrice());
-
-            if (chooseEvent.choose(stringBuilder.toString())) {
-                buyPropertyEvent.execute(player, board);
-            }
-        } else {
+        Player owner = board.getPropertyOwner((PropertyCard) board.getPlayerPositionCard(player));
+        if (owner != null) {
             payRentEvent.execute(player, board);
+        } else {
+            buyPropertyEvent.execute(player, board);
         }
     }
 }

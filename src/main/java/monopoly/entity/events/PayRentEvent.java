@@ -8,12 +8,8 @@ import monopoly.entity.roles.Player;
 
 public class PayRentEvent extends Event {
 
-    public PayRentEvent() {
-        super();
-    }
-
-    public PayRentEvent(String description) {
-        super(description);
+    public PayRentEvent(String name, String description) {
+        super(name, description);
     }
 
     @Override
@@ -22,14 +18,15 @@ public class PayRentEvent extends Event {
         PropertyCard currentCard = (PropertyCard) board.getCard(
                 board.getPlayerPosition(player)
         );
-
+        Player owner = (Player) currentCard.getOwner();
         Rent currRent = currentCard.getRent();
-        payRent(player, currRent.getRentByLevel(currentCard.getCurrLevel()));
+        payRent(player, owner, currRent.getRentByLevel(currentCard.getCurrLevel()));
 
     }
 
-    public void payRent(Player player, Integer rent) {
-        player.subMoneys(rent);
+    public void payRent(Player playerNotOwner, Player owner, Integer rent) {
+        playerNotOwner.subMoneys(rent);
+        owner.addMoneys(rent);
     }
 
     @Override

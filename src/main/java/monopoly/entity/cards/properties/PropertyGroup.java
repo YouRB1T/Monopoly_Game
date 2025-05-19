@@ -9,36 +9,23 @@ import java.util.Set;
 
 public class PropertyGroup {
     private String name;
-    private CardStorage<Card> cardStorage;
-
-    public PropertyGroup(String name) {
-        this.name = name;
-        this.cardStorage = new CardStorage(new HashSet<>());
-    }
-
-    public String getName() {
-        return name;
-    }
+    private Set<Card> cardStorage;
 
     public void addCard(Card card) {
-        cardStorage.addCard(card);
+        cardStorage.add(card);
     }
 
     public boolean hasAllCards(Player player) {
-        for (Card card : cardStorage.getCards()) {
-            if (!player.hasCard(card)) {
+        for (Object card : cardStorage.toArray()) {
+            if (!player.hasCard((Card) card)) {
                 return false;
             }
         }
         return true;
     }
 
-    public Set<Card> getCards() {
-        return cardStorage.getCards();
-    }
-
     public void deleteCard(Card card) {
-        cardStorage.deleteCard(card);
+        cardStorage.remove(card);
     }
 }
 

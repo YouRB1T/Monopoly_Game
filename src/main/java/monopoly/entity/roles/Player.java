@@ -1,56 +1,34 @@
 package monopoly.entity.roles;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import monopoly.entity.cards.Card;
 import monopoly.entity.cards.CardStorage;
 import monopoly.entity.cards.properties.Priced;
 
-public class Player<C extends Card & Priced> extends Role {
+import java.util.HashSet;
+import java.util.Set;
+
+@RequiredArgsConstructor
+@Getter
+@Setter
+public class Player extends Role {
     private Integer moneys;
     private Integer totalMoneys;
-    private final CardStorage<C> playerCards;
-
-    public Player() {
-        this.playerCards = new CardStorage();
-        this.moneys = 0;
-        this.totalMoneys = 0;
-    }
-
-    public Player(String name) {
-        super(name);
-        this.playerCards = new CardStorage();
-        totalMoneys = 0;
-        moneys = 0;
-    }
-
-    public Integer getMoneys() {
-        return moneys;
-    }
-
-    public void setMoneys(Integer moneys) {
-        this.moneys = moneys;
-    }
-
-    public Integer getTotalMoneys() {
-        return totalMoneys;
-    }
+    private final Set<Card> playerCards;
 
     public void deleteCard(Card card) {
-        if (card instanceof Priced) {
-            totalMoneys -= ((Priced) card).getPrice();
-        }
-        playerCards.deleteCard(card);
+       playerCards.remove(card);
     }
 
     public void addCard(Card card) {
-
-        if (card instanceof Priced) {
-            totalMoneys += ((Priced) card).getPrice();
-        }
-        playerCards.addCard(card);
+        playerCards.add(card);
     }
 
     public boolean hasCard(Card card) {
-        return playerCards.isCardInside(card);
+        return playerCards.contains(card);
     }
 
     public void addMoneys(Integer amount) {
@@ -63,7 +41,11 @@ public class Player<C extends Card & Priced> extends Role {
         totalMoneys -= amount;
     }
 
-    public String getName() {
-        return super.getName();
+    public void buyCard(Integer amount) {
+        moneys -= amount;
+    }
+
+    public void addTotalMoneys(Integer amount) {
+        totalMoneys += amount;
     }
 }
