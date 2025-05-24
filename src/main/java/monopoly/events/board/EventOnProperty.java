@@ -1,13 +1,11 @@
-package monopoly.entity.events;
+package monopoly.events.board;
 
-import lombok.RequiredArgsConstructor;
 import monopoly.entity.Board;
-import monopoly.entity.cards.Card;
 import monopoly.entity.cards.properties.PropertyCard;
 import monopoly.entity.roles.Player;
 
 
-public class EventOnProperty extends Event{
+public class EventOnProperty extends EventOnBoard{
     private final BuyPropertyEvent buyPropertyEvent = new BuyPropertyEvent("Покупка собственности",
             "Сработал ивент покупки собственности");
     private final PayRentEvent payRentEvent = new PayRentEvent("Оплата аренды",

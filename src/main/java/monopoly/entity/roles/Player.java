@@ -1,14 +1,10 @@
 package monopoly.entity.roles;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import monopoly.entity.cards.Card;
-import monopoly.entity.cards.CardStorage;
-import monopoly.entity.cards.properties.Priced;
 
-import java.util.HashSet;
 import java.util.Set;
 
 @RequiredArgsConstructor

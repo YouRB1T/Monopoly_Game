@@ -1,22 +1,25 @@
 package monopoly.entity.cards.properties;
 
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import monopoly.entity.cards.Card;
 import monopoly.entity.cards.properties.characteristics.Rent;
-import monopoly.entity.cards.properties.characteristics.RentUtils;
-import monopoly.entity.events.Event;
-import monopoly.entity.roles.Role;
+import monopoly.events.board.EventOnBoard;
+import monopoly.entity.roles.Player;
 
 @Getter
 @Setter
-@RequiredArgsConstructor
 public class PropertyCard extends Card implements Priced {
     private final Integer price;
     private final Rent rent;
     private Integer currLevel;
-    private Role owner;
+    private Player owner;
+
+    public PropertyCard(EventOnBoard eventOfCard, String title, String description, Integer price, Rent rent) {
+        super(eventOfCard, title, description);
+        this.price = price;
+        this.rent = rent;
+    }
 
     @Override
     public Integer getPrice() {

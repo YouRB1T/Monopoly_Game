@@ -5,8 +5,6 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import monopoly.entity.cards.Card;
-import monopoly.entity.cards.CardAction;
-import monopoly.entity.cards.CardStorage;
 import monopoly.entity.cards.properties.PropertyCard;
 import monopoly.entity.cards.properties.PropertyGroup;
 import monopoly.entity.roles.Player;

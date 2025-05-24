@@ -22,11 +22,7 @@ public class Rent {
     }
 
     public void setRentOnTheLevel(Integer level, Integer rent) {
-        if (rentByLevel.containsKey(level)) {
-            rentByLevel.put(level, rent);
-        } else {
-            rentByLevel.put(level, rent);
-        }
+        rentByLevel.put(level, rent);
     }
 
     public Integer getRentByLevel(Integer level) {

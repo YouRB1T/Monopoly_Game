@@ -1,10 +1,8 @@
 package monopoly.entity.cards.properties;
 
 import monopoly.entity.cards.Card;
-import monopoly.entity.cards.CardStorage;
 import monopoly.entity.roles.Player;
 
-import java.util.HashSet;
 import java.util.Set;
 
 public class PropertyGroup {

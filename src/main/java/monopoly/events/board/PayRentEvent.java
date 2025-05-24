@@ -1,12 +1,11 @@
-package monopoly.entity.events;
+package monopoly.events.board;
 
 import monopoly.entity.Board;
-import monopoly.entity.cards.Card;
 import monopoly.entity.cards.properties.PropertyCard;
 import monopoly.entity.cards.properties.characteristics.Rent;
 import monopoly.entity.roles.Player;
 
-public class PayRentEvent extends Event {
+public class PayRentEvent extends EventOnBoard {
 
     public PayRentEvent(String name, String description) {
         super(name, description);

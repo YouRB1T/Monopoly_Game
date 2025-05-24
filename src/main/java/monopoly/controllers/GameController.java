@@ -18,7 +18,7 @@ public class GameController {
 
     public GameController() {
         gameOver = false;
-        board = new Board();
+
         scanner = new Scanner(System.in);
 
     }
@@ -27,13 +27,7 @@ public class GameController {
     public void startGame() {
         System.out.println("Rules: C(Classic) / E(Enother)");
         String rules = scanner.nextLine();
-        switch (rules) {
-            case "C":
-                gameBuilder = new ClassicGameBuilder();
-                board = gameBuilder.getBoard();
-            case "E":
-                System.out.println("Someday new rules will be invented.");
-        }
+
 
         System.out.println("Write nums of players:");
 
@@ -41,11 +35,7 @@ public class GameController {
 
         Queue<Player> players = new LinkedList<>();
 
-        for (int i = 0; i < playerCount; i++) {
-            System.out.println("Print nickname " + i + " player:");
-            String name = scanner.nextLine();
-            players.offer(new Player(name));
-        }
+
 
         playerController = new PlayerController(players);
 
